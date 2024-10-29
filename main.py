@@ -1,13 +1,10 @@
-#Escriba un programa que pida al usuario un entero de tres dígitos, y entregue el número con los dígitos en orden inverso:
+#Escriba un programa que reciba como entrada las longitudes de los dos catetos a y b de un triángulo rectángulo, y que entregue como salida el largo de la hipotenusa c del triangulo, dado por el teorema de Pitágoras:
 
-#Ingrese numero: 345
-#543
+#Ingrese cateto a: 7
+#Ingrese cateto b: 5
+#La hipotenusa es 8.6023252670426267
+import math
 
-#Ingrese numero: 241
-#142
-number = (int)(input("Insert a number of three digits: "))
-digit1 = number//100 
-Digit2 = (number//10)%10
-Digit3 = number%10
-numberInvert = (Digit3*100)+(Digit2*10)+digit1
-print(numberInvert)
+CatetoA = (int)(input('Please insert the lenght "a" of the triangle: '))
+CatetoB = (int)(input('Please insert the lenght "b" of the triangle: '))
+print(f"""La hipotenusa es {math.hypot(CatetoA,CatetoB)}""")
