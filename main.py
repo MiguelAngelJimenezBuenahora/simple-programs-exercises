@@ -1,10 +1,14 @@
-#Escriba un programa que reciba como entrada las longitudes de los dos catetos a y b de un triángulo rectángulo, y que entregue como salida el largo de la hipotenusa c del triangulo, dado por el teorema de Pitágoras:
+#Escriba un programa que pregunte al usuario la hora actual t del reloj y un número entero de horas h, que indique qué hora marcará el reloj dentro de h horas:
 
-#Ingrese cateto a: 7
-#Ingrese cateto b: 5
-#La hipotenusa es 8.6023252670426267
-import math
+#Hora actual: 3
+#Cantidad de horas: 5
+#En 5 horas, el reloj marcara las 8
 
-CatetoA = (int)(input('Please insert the lenght "a" of the triangle: '))
-CatetoB = (int)(input('Please insert the lenght "b" of the triangle: '))
-print(f"""La hipotenusa es {math.hypot(CatetoA,CatetoB)}""")
+#Hora actual: 11
+#Cantidad de horas: 43
+#En 43 horas, el reloj marcara las 6
+
+currentHour = (int)(input("Please insert the current hours: "))
+countfHours = (int)(input("Now insert the number of hours passes: "))
+print(f"""In {countfHours}, the clock will tick {(currentHour+countfHours)%24}""")
+
