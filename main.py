@@ -1,22 +1,45 @@
-#Un alumno desea saber que nota necesita en el tercer certamen para aprobar un ramo.
+#Cuando un huevo es hervido en agua, las proteínas comienzan a coagularse cuando la temperatura sobrepasa un punto crítico. A medida que la temperatura aumenta, las reacciones se aceleran.
 
-#El promedio del ramo se calcula con la siguiente formula.
-#NC=(C1+C2+C3)/3
-#NF=NC⋅0.7+NL⋅0.3
+#En la clara, las proteínas comienzan a coagularse para temperaturas sobre 63°C, mientras que en la yema lo hacen para temperaturas sobre 70°C. Para hacer un huevo a la copa, la clara debe haber sido calentada lo suficiente para coagularse a más de 63°C, pero la yema no debe sobrepasar los 70°C para evitar obtener un huevo duro.
 
-#Donde NC
-#es el promedio de certámenes, NL el promedio de laboratorio y NF la nota final.
+#El tiempo en segundos que toma al centro de la yema alcanzar Ty
 
-#Escriba un programa que pregunte al usuario las notas de los dos primeros certamen y la nota de laboratorio, y muestre la nota que necesita el alumno para aprobar el ramo con nota final 60.
+#°C está dado por la fórmula:
+#t=M2/3cρ1/3Kπ2(4π/3)2/3ln[0.76To−TwTy−Tw],
 
-#Ingrese nota certamen 1: 45
-#Ingrese nota certamen 2: 55
-#Ingrese nota laboratorio: 65
-#Necesita nota 72 en el certamen 3
+#donde M
+#es la masa del huevo, ρ su densidad, c su capacidad calorífica específica y K
 
-nFirstCertamen = (int)(input("Please insert the score of the first certamen: "))
-nSecondCertamen = (int)(input("Please insert the score of the second certamen: "))
-nl= (int)(input("please insert the score of the laboratory: "))
+#su conductividad térmica. Algunos valores típicos son:
 
-nc = ((60 - nl * 0.3) / 0.7)
-print(f"""Need a score of {((int)(3*nc-nFirstCertamen-nSecondCertamen))} in the third certamen for pass in NF with 60""")
+ #   M=47[g]
+
+#para un huevo pequeño y M=67[g]
+#para uno grande,
+#ρ=1.038[gcm−3]
+#,
+#c=3.7[Jg−1K−1]
+#, y
+#K=5.4⋅10−3[Wcm−1K−1
+
+#   ].
+
+#Tw
+#es la temperatura de ebullición del agua y To
+
+#la temperatura original del huevo antes de meterlo al agua, ambos en grados Celsius.
+
+#Escriba un programa que reciba como entrada la temperatura original del huevo y muestre como salida el tiempo en segundos que le toma alcanzar la temperatura máxima para prepararlo a la copa.
+
+import math
+TempOrigEgg = (float)(input("Please insert the original temp of the egg: "))
+MofEggSmall = 47
+MofEggBig = 67
+P = 1.038   #Densidad
+c = 3.7     #Capacidad calorifica especifica
+k = 5.4**-3 #Conductividad térmica
+Tw = 100    #
+Ty = 70     #Temperatura final de la yema
+print(f"""El tiempo que tarda en alcanzar la temperatura máxima son:
+       Si es un huevo pequeño {int(((MofEggSmall**(2/3)*c*P**(1/3))/(k*math.pi**2)*(((4*math.pi)/3)**(2/3))*(math.log(0.76*((TempOrigEgg-Tw)/(Ty-Tw))))))} segundos. 
+       Si es un huevo grande {int(((MofEggBig**(2/3)*c*P**(1/3))/(k*math.pi**2)*(((4*math.pi)/3)**(2/3))*(math.log(0.76*((TempOrigEgg-Tw)/(Ty-Tw))))))} segundos""")
